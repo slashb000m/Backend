@@ -42,24 +42,26 @@ public class AuthentificationController {
 		return modelAndView;
 	}
 	
+
+	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ModelAndView registerUser(@Valid User user, BindingResult bindingResult, ModelMap modelMap) {
 		ModelAndView modelAndView = new ModelAndView();
 		// Check for the validations
 		if (bindingResult.hasErrors()) {
-			modelAndView.addObject("succesMessage", "verifier la saisie du formulaire");
+			modelAndView.addObject("successMessage", "verifier la saisie du formulaire");
 			modelMap.addAttribute("bindingResult", bindingResult);
 		}
 		// we will save the user if no binding errors
 		else if (userService.isUserAlreadyPresent(user))
 		{
-			modelAndView.addObject("succesMessage", "Utilisateur déja inscrit !");
+			modelAndView.addObject("successMessage", "Utilisateur déja inscrit !");
 			
 		}
 		else 
 		{ 
 			userService.SaveUser(user);
-			modelAndView.addObject("succesMessage", "Inscription éfféctué avec succés !");
+			modelAndView.addObject("successMessage", "Inscription éfféctué avec succés !");
 		}
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("register");
