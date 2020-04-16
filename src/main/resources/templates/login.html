@@ -8,10 +8,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color:#ededed;">
-	<div style="background-color:#337ab7;height:50px;"></div>
+<body style="background-color: #323232;">
+	<div style="background-color:#05d9b9;height:50px;">
+	 <img src="../static/images/logo.png" width="180px" th:src="@{images/logo.png}" alt="logo"/>
+	 </div>
+	
 	<div class="container-fluid">
-		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 80px;background-color:#fff;padding:20px;border:solid 1px #ddd;">
+		<div class="row col-lg-4 col-lg-offset-4"  style="margin-top: 80px;background-color:#fff;padding:20px;border:solid 1px #ddd; border-radius: 25px;">
 			<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
 			<form th:action="@{/login}" method="POST" class="form-signin">
 				<h3 class="form-signin-heading" th:text="Login"></h3>
@@ -20,7 +23,7 @@
 				<div align="center" th:if="${param.error}">
 					<p style="font-size: 20; color: #FF1C19;">Email ou mot de passe incorrect.</p>
 				</div>
-				<button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login" style="margin-right:10px;"></button>
+				<button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login" style=" background-color:#05d9b9; margin-right:10px;"></button>
 				<!--  <a href="/recover-password">Mot de passe oublié ?</a>-->
 			</form>
 		</div>
