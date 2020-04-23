@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+@Data
 @Entity
 @Table(name="version")
 public class Version {
@@ -17,7 +19,7 @@ public class Version {
 	@Column(name = "version_id")
 	private int id;
 	
-	@Column(name = "nom")
+	@Column(name = "nom_version")
 	private String version;
 	
 	@ManyToOne

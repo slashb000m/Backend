@@ -9,16 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+@Data
 @Entity
 @Table(name = "produit")
 public class Produit {
-	
+
 	@Id 
 	@GeneratedValue
 	@Column(name = "produit_id")
 	private int id;
 	
-	@Column(name = "nom")
+	@Column(name = "nom_produit")
 	private String nom;
 	
 	@OneToMany(mappedBy="produit")
