@@ -15,7 +15,7 @@ import com.example.demo.service.UserService;
 
 @Controller
 public class AuthentificationController {
-
+	
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView();
