@@ -41,11 +41,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.cors().and().authorizeRequests()
 				// URLs matching for access rights
-				.antMatchers("/").permitAll()
+				.antMatchers("/").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.antMatchers("/login").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers("/home/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-				.anyRequest().authenticated()
+				.anyRequest().permitAll()
 				.and()
 				// form login
 				.csrf().disable().formLogin()
