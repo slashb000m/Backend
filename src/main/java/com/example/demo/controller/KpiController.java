@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DAO.GroupByProportionClosedReturned;
+import com.example.demo.DAO.GroupByTicketPriorite;
+import com.example.demo.DAO.GroupByTicketRepartition;
+import com.example.demo.DAO.GroupByTicketResolution;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
@@ -23,6 +27,10 @@ public class KpiController {
 	@Autowired
 	TicketService ticketService;
 	
+
+	
+	
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/kpi/productivite/closed-tickets" }, method = RequestMethod.GET)
 	public List<TicketRepartition> Get_Tickets_Closed()
@@ -51,6 +59,41 @@ public class KpiController {
 		return ticketService.FindTicketByVersion();
 		
 	}
+	
+	// GroupBy Controllers 
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/kpi/productivite/closed-tickets/group-by-number-of-tickets" }, method = RequestMethod.GET)
+	public List<GroupByTicketRepartition> Get_Group_By_Tickets()
+	{
+		return ticketService.CountNumberOfTicketsByCollaborateurs();		
+	}
+	
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/kpi/productivite/group-by-proportion-returned-validated-tickets" }, method = RequestMethod.GET)
+	public List<GroupByProportionClosedReturned> Get_Group_By_Closed_Returned()
+	{
+		return ticketService.ContNumberOfClosedReturned();		
+	}
+	
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/kpi/efficacite/group-by-temps_moyen_resolution_ticket"}, method = RequestMethod.GET)
+	public List<GroupByTicketResolution> Get_Group_By_Resolution_Time()
+	{
+		return ticketService.ContNumberOfResolutionTime();		
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/kpi/produit/group-by-priorite_tickets_par_version" }, method = RequestMethod.GET)
+	public List<GroupByTicketPriorite> Get_Group_By_Priorite()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+	
 	
 	
 	

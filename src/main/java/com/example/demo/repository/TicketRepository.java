@@ -8,6 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.DAO.GroupByProportionClosedReturned;
+import com.example.demo.DAO.GroupByTicketPriorite;
+import com.example.demo.DAO.GroupByTicketRepartition;
+import com.example.demo.DAO.GroupByTicketResolution;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketRepartitionImpl;
@@ -18,37 +22,61 @@ import com.example.demo.model.Ticket;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
+	/* before the selection from the view, make the update for the where condition of the view creation, if doesnt work, use create or
+	 * replace view and rewrite the view creation  */
 	
-	@Query(value="SELECT ticket.statut_statut_id as id_statut,ticket.date_creation as date_creation,auth_user.first_name as first_name ,auth_user.last_name as last_name,produit.nom_produit as nom_produit,version.nom_version as nom_version "
-			+ "FROM auth_user join produit ON auth_user.produit_produit_id = produit.produit_id "
-			+ "join version ON produit.produit_id = version.produit_produit_id "
-			+ "join ticket ON version.version_id = ticket.version_source_version_id "
-			+ "where produit.nom_produit='GP3' AND ticket.date_creation >= 10/10/2010 AND ticket.statut_statut_id=1"
+	@Query(value="select * from tickets_par_collaborateur_view"
 			, nativeQuery = true)
 	List<TicketRepartition> FindTicketByConfig();
 	
-	@Query(value="SELECT ticket.statut_statut_id as id_statut, ticket.date_creation as date_creation,auth_user.first_name as first_name ,auth_user.last_name as last_name,produit.nom_produit as nom_produit,version.nom_version as nom_version"
-			+ " FROM auth_user join produit ON auth_user.produit_produit_id = produit.produit_id "
-			+ "join version ON produit.produit_id = version.produit_produit_id "
-			+ "join ticket ON version.version_id = ticket.version_source_version_id"
-			+ " where produit.nom_produit='GP3' AND ticket.date_creation >= 10/10/2010 AND ticket.statut_statut_id=1 OR ticket.statut_statut_id=2"
+	
+	@Query(value="SELECT * FROM proportion_closed_returned_view"
 			, nativeQuery = true)
 	List<TicketRepartition> FindTicketClosedAndReturned();
 	
-	@Query(value="SELECT ticket.date_maj as date_maj, ticket.complexite as complexite,auth_user.first_name as first_name ,auth_user.last_name as last_name,log.temps as temps_de_resolution,ticket.date_creation as date_creation "
-			+ "FROM ticket join auth_user ON auth_user.auth_user_id = ticket.assigne_a_auth_user_id "
-			+ "join log ON log.ticket_ticket_id = ticket.ticket_id "
-			+ "where ticket.date_creation >= 10/10/2010 AND ticket.statut_statut_id=1"
+	
+	@Query(value="select * from resolution_time_ticket_view"
 			, nativeQuery = true)
 	List<TicketResolutionTime> FindTicketWithTime();
 	
-	@Query(value="SELECT produit.nom_produit as nom_produit,priorite.descrption as priorite, ticket.date_creation as date_creation, ticket.nom as nom_ticket, version.nom_version as nom_version "
-			+ "FROM ticket join version ON ticket.version_source_version_id = version.version_id "
-			+ "join produit ON produit.produit_id = version.produit_produit_id"
-			+ " join priorite on priorite.priorite_id = ticket.priorite_priorite_id "
-			+ "where ticket.date_creation >= 10/10/2010 AND ticket.statut_statut_id=1"
+	
+	@Query(value="SELECT * FROM `tickets_with_priority_view"
 			, nativeQuery = true)
 	List<TicketPriorite> FindTicketWithPriorite();
+	
+	
+	/*Group By 
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	@Query(value="SELECT last_name, COUNT(*) as nb_de_ticket"
+			+ " FROM tickets_par_collaborateur_view "
+			+ "GROUP BY last_name"
+			, nativeQuery = true)
+	List<GroupByTicketRepartition> GroupByNumberOfTickets();
+	
+	@Query(value="SELECT last_name,id_statut,COUNT(*) "
+			+ "as nb_de_ticket FROM proportion_closed_returned_view "
+			+ "GROUP BY id_statut"
+			, nativeQuery = true)
+	List<GroupByProportionClosedReturned> GroupByTicketRepartition();
+	
+	@Query(value="SELECT last_name, COUNT(*) as nb_de_ticket\r\n" + 
+			"			 FROM resolution_time_ticket_view \r\n" + 
+			"			GROUP BY last_name"
+			, nativeQuery = true)
+	List<GroupByTicketResolution> GroupByResolutionTime();
+	
+	@Query(value="SELECT priorite, COUNT(*) as nb_de_ticket"
+			+ " FROM tickets_with_priority_view "
+			+ "GROUP BY priorite"
+			, nativeQuery = true)
+	List<GroupByTicketPriorite> GroupByTicketPriority();
+	
 	
 	
 	
