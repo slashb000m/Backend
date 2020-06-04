@@ -65,9 +65,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			, nativeQuery = true)
 	List<GroupByProportionClosedReturned> GroupByTicketRepartition();
 	
-	@Query(value="SELECT last_name, COUNT(*) as nb_de_ticket\r\n" + 
-			"			 FROM resolution_time_ticket_view \r\n" + 
-			"			GROUP BY last_name"
+	@Query(value="SELECT nom_ticket as last_name, SUM(temps_de_resolution) AS nb_de_ticket FROM resolution_time_ticket_view GROUP BY nom_ticket"
 			, nativeQuery = true)
 	List<GroupByTicketResolution> GroupByResolutionTime();
 	

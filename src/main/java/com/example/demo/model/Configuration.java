@@ -22,12 +22,21 @@ public class Configuration {
 	@Column(name="config_id")
 	private int id;
 	
-	@Column(name="config_string1")
-	private String config_string1; 
+	@Column(name="config_collaborateur")
+	private String config_collaborateur;
 	
-	@Column(name="config_string2")
-	private String config_string2; 
-
+	@Column(name="config_version")
+	private String config_version; 
+	
+	@Column(name="config_epic")
+	private String config_epic; 
+	
+	@Column(name="config_sprint")
+	private int config_sprint; 
+	
+	@Column(name="config_statut")
+	private String config_statut; 
+	
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date date_deb;

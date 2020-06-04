@@ -7,7 +7,8 @@ public interface TicketResolutionTime {
 	int getComplexite();
 	String getFirst_name();
 	String getLast_name() ;
-	int getTemps_de_resolution();
+	double getTemps_de_resolution();
 	Date getDate_creation();
-
+	String getNom_ticket();
+	String getNom_log() ;
 }

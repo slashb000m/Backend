@@ -25,8 +25,8 @@ public class Log {
 	@Column(name="nom")
 	private String nom; 
 	
-	@Column(name="temps")
-	private int minutes_passes ;
+	@Column(name="temps",columnDefinition="FLOAT")
+	private double minutes_passes ;
 	
 	@ManyToOne
 	private SousTicket SousTicket; 

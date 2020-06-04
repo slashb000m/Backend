@@ -8,9 +8,24 @@ public class TicketResolutionTimeImpl implements TicketResolutionTime {
 	private int complexite;
 	private String first_name;
 	private String last_name;
-	private int temps_de_resolution;
+	private double temps_de_resolution;
 	private Date date_creation;
+	private String nom_ticket;
+	private String nom_log;
 	
+	
+	public String getNom_ticket() {
+		return nom_ticket;
+	}
+	public void setNom_ticket(String nom_ticket) {
+		this.nom_ticket = nom_ticket;
+	}
+	public String getNom_log() {
+		return nom_log;
+	}
+	public void setNom_log(String nom_log) {
+		this.nom_log = nom_log;
+	}
 	//Getters and Setters
 	public Date getDate_maj() {
 		return date_maj;
@@ -36,11 +51,11 @@ public class TicketResolutionTimeImpl implements TicketResolutionTime {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public int getTemps_de_resolution() {
-		return temps_de_resolution;
+	public double getTemps_de_resolution() {
+		return (temps_de_resolution/60);
 	}
-	public void setTemps_de_resolution(int temps_de_resolution) {
-		this.temps_de_resolution = temps_de_resolution;
+	public void setTemps_de_resolution(double temps_de_resolution) {
+		this.temps_de_resolution = temps_de_resolution/60;
 	}
 	public Date getDate_creation() {
 		return date_creation;

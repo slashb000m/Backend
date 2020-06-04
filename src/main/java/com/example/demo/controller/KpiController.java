@@ -95,6 +95,60 @@ public class KpiController {
 	}
 	
 	
+	//Post config
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configNom/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigNomCollab()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+	
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configStatut/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigStatut()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+	
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configVersion/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigVersion()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configSprint/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigSprint()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configEpic/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigEpic()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configDateDeb/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigDateDeb()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configDateFin/Kpi" }, method = RequestMethod.POST)
+	public List<GroupByTicketPriorite> ConfigDateFin()
+	{
+		return ticketService.ContNumberOfPriorite();		
+	}
+	
+	
 	
 	
 

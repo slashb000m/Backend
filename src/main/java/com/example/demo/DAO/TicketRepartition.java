@@ -9,6 +9,8 @@ package com.example.demo.DAO;
 	    public String getLast_name();
 	    public String getNom_produit();
 	    public String getNom_version();
+	    public String getNom_ticket();
+	    public String getNom_client();
 
 	}
 

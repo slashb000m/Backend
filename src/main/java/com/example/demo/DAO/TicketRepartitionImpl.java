@@ -13,6 +13,21 @@ public class TicketRepartitionImpl implements TicketRepartition{
     public String last_name;
     public String nom_produit;
     public String nom_version;
+    public String nom_ticket;
+    public String nom_client;
+    
+	public String getNom_client() {
+		return nom_client;
+	}
+	public void setNom_client(String nom_client) {
+		this.nom_client = nom_client;
+	}
+	public String getNom_ticket() {
+		return nom_ticket;
+	}
+	public void setNom_ticket(String nom_ticket) {
+		this.nom_ticket = nom_ticket;
+	}
 	public int getId_statut() {
 		return id_statut;
 	}
