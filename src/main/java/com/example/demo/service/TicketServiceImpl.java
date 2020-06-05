@@ -25,7 +25,7 @@ public class TicketServiceImpl implements TicketService
 	@Override
 	public List<TicketRepartition> ShowTicketsByRepartition()
 	 {
-		 return    ticketRepository.FindTicketByConfig();
+		 return  ticketRepository.FindTicketByConfig();
 	 }
 	
 	 public List<TicketRepartition> FindTicketProportionClosedReturned()

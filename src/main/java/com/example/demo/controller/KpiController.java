@@ -6,11 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DAO.ConfigEpicImpl;
+import com.example.demo.DAO.ConfigStatutImpl;
+import com.example.demo.DAO.ConfigString;
+import com.example.demo.DAO.ConfigStringImpl;
+import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -18,6 +24,8 @@ import com.example.demo.DAO.GroupByTicketResolution;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
+import com.example.demo.model.Configuration;
+import com.example.demo.service.ConfigurationService;
 import com.example.demo.service.TicketService;
 import com.example.demo.service.UserService;
 
@@ -26,6 +34,9 @@ public class KpiController {
 	
 	@Autowired
 	TicketService ticketService;
+	
+	@Autowired
+	ConfigurationService configurationService;
 	
 
 	
@@ -97,60 +108,37 @@ public class KpiController {
 	
 	//Post config
 	
+	
+	
+	
+	
+	
+	
+	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configNom/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigNomCollab()
+	@RequestMapping(value = { "/configNom/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigNomCollab(@RequestBody ConfigStringImpl config)
 	{
-		return ticketService.ContNumberOfPriorite();		
+		configurationService.saveOrUpdateNomCollab(config);
 	}
 	
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configStatut/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigStatut()
+	@RequestMapping(value = { "/configVersion/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigVersion(@RequestBody ConfigVersionImpl config)
 	{
-		return ticketService.ContNumberOfPriorite();		
+		configurationService.saveOrUpdateVersion(config);
 	}
 	
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configVersion/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigVersion()
+	@RequestMapping(value = { "/configStatut/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigStatut(@RequestBody ConfigStatutImpl config)
 	{
-		return ticketService.ContNumberOfPriorite();		
+		configurationService.saveOrUpdateStatut(config);		
 	}
+	
 
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configSprint/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigSprint()
-	{
-		return ticketService.ContNumberOfPriorite();		
-	}
-
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configEpic/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigEpic()
-	{
-		return ticketService.ContNumberOfPriorite();		
-	}
-
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configDateDeb/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigDateDeb()
-	{
-		return ticketService.ContNumberOfPriorite();		
-	}
-	
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/configDateFin/Kpi" }, method = RequestMethod.POST)
-	public List<GroupByTicketPriorite> ConfigDateFin()
-	{
-		return ticketService.ContNumberOfPriorite();		
-	}
-	
-	
-	
-	
 
 	
 

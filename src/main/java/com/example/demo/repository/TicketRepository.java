@@ -75,7 +75,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			, nativeQuery = true)
 	List<GroupByTicketPriorite> GroupByTicketPriority();
 	
-	
+	// 
 	
 	
 	
