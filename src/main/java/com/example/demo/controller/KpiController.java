@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DAO.ConfigDateFinImpl;
+import com.example.demo.DAO.ConfigDateImpl;
 import com.example.demo.DAO.ConfigEpicImpl;
+import com.example.demo.DAO.ConfigIntImpl;
 import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
@@ -138,6 +141,46 @@ public class KpiController {
 		configurationService.saveOrUpdateStatut(config);		
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configEpic/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigStatut(@RequestBody ConfigEpicImpl config)
+	{
+		configurationService.saveOrUpdateEpic(config);		
+	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configSprint/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigSprint(@RequestBody ConfigIntImpl config)
+	{
+		configurationService.saveOrUpdateSprint(config);		
+	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configDateDeb/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigSprint(@RequestBody ConfigDateImpl config)
+	{
+		configurationService.saveOrUpdateDateDeb(config);		
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configDateFin/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigSprint(@RequestBody ConfigDateFinImpl config)
+	{
+		configurationService.saveOrUpdateDateFin(config);		
+	}
+	
+
+	
+
+	
+	
+
+	
+
+	
+
 
 
 	

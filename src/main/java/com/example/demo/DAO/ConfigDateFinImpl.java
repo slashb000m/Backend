@@ -1,14 +1,14 @@
 package com.example.demo.DAO;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ConfigIntImpl implements ConfigInt  {
-	
+public class ConfigDateFinImpl implements ConfigDateFin{
 	@JsonProperty("config_id")
-	private int id_config; 
-	
-	@JsonProperty("numero_sprint")
-	private int Config;
+	private int id_config;
+	@JsonProperty("date_fin")
+	private Date Config;
 	
 	
 	public int getId_config() {
@@ -17,12 +17,11 @@ public class ConfigIntImpl implements ConfigInt  {
 	public void setId_config(int id_config) {
 		this.id_config = id_config;
 	}
-	public int getConfig() {
+	public Date getConfig() {
 		return Config;
 	}
-	public void setConfig(int config) {
+	public void setConfig(Date config) {
 		Config = config;
 	}
-
 
 }

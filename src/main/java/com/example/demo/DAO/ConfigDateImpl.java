@@ -2,9 +2,12 @@ package com.example.demo.DAO;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ConfigDateImpl implements ConfigDate {
-	
-	private int id_config; 
+	@JsonProperty("config_id")
+	private int id_config;
+	@JsonProperty("date_deb")
 	private Date Config;
 	
 	
