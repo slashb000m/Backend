@@ -25,11 +25,25 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 	/* before the selection from the view, make the update for the where condition of the view creation, if doesnt work, use create or
 	 * replace view and rewrite the view creation  */
 	
-	@Query(value="select * from tickets_par_collaborateur_view"
+	@Query(value="select * from tickets_par_collaborateur_view where \r\n" + 
+			" ( statut=(select configuration.config_statut from configuration where configuration.config_id=1) \r\n" + 
+			"or(select configuration.config_statut from configuration where configuration.config_id=1)=\"peu importe\"  ) \r\n" + 
+			"\r\n" + 
+			"and (nom_epic=(select configuration.config_epic from configuration where configuration.config_id=1) \r\n" + 
+			"or(select configuration.config_epic from configuration where configuration.config_id=1)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and (nom_version=(select configuration.config_version from configuration where configuration.config_id=1) \r\n" + 
+			"or(select configuration.config_version from configuration where configuration.config_id=1)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and numero_sprint>(select configuration.config_sprint from configuration where configuration.config_id=1) \r\n" + 
+			"\r\n" + 
+			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=1) \r\n" + 
+			"\r\n" + 
+			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=1) "
 			, nativeQuery = true)
 	List<TicketRepartition> FindTicketByConfig();
 	
-	
+	//Il faut creer un nouveau DAO adapté au retour de la vue pour corriger l'erreur
 	@Query(value="SELECT * FROM proportion_closed_returned_view"
 			, nativeQuery = true)
 	List<TicketRepartition> FindTicketClosedAndReturned();

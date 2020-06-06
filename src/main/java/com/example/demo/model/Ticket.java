@@ -67,6 +67,7 @@ public class Ticket {
 	@ManyToOne 
 	private Epic epic;
 	
+	
 	@ManyToMany 
 	private List<Sprint> sprints;
 
