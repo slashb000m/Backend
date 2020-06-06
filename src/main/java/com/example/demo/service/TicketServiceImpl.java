@@ -10,6 +10,7 @@ import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
 import com.example.demo.DAO.GroupByTicketResolution;
+import com.example.demo.DAO.TicketClosedReturned;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
@@ -28,7 +29,7 @@ public class TicketServiceImpl implements TicketService
 		 return  ticketRepository.FindTicketByConfig();
 	 }
 	
-	 public List<TicketRepartition> FindTicketProportionClosedReturned()
+	 public List<TicketClosedReturned> FindTicketProportionClosedReturned()
 	 {	 
 		 return ticketRepository.FindTicketClosedAndReturned(); 
 

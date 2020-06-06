@@ -12,6 +12,7 @@ import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
 import com.example.demo.DAO.GroupByTicketResolution;
+import com.example.demo.DAO.TicketClosedReturned;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketRepartitionImpl;
@@ -43,13 +44,43 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			, nativeQuery = true)
 	List<TicketRepartition> FindTicketByConfig();
 	
-	//Il faut creer un nouveau DAO adapté au retour de la vue pour corriger l'erreur
-	@Query(value="SELECT * FROM proportion_closed_returned_view"
+
+	@Query(value="select * from proportion_closed_returned_view \r\n" + 
+			"where \r\n" + 
+			" ( first_name=(select configuration.config_collaborateur from configuration where configuration.config_id=2) \r\n" + 
+			"or(select configuration.config_collaborateur from configuration where configuration.config_id=2)=\"peu importe\"  ) \r\n" + 
+			"\r\n" + 
+			"and (nom_epic=(select configuration.config_epic from configuration where configuration.config_id=2) \r\n" + 
+			"or(select configuration.config_epic from configuration where configuration.config_id=2)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and (nom_version=(select configuration.config_version from configuration where configuration.config_id=2) \r\n" + 
+			"or(select configuration.config_version from configuration where configuration.config_id=2)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and numero_sprint>(select configuration.config_sprint from configuration where configuration.config_id=2) \r\n" + 
+			"\r\n" + 
+			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=2) \r\n" + 
+			"\r\n" + 
+			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=2) "
 			, nativeQuery = true)
-	List<TicketRepartition> FindTicketClosedAndReturned();
+	List<TicketClosedReturned> FindTicketClosedAndReturned();
 	
 	
-	@Query(value="select * from resolution_time_ticket_view"
+	@Query(value="SELECT * from resolution_time_ticket_view\r\n" + 
+			"where \r\n" + 
+			" ( first_name=(select configuration.config_collaborateur from configuration where configuration.config_id=3) \r\n" + 
+			"or(select configuration.config_collaborateur from configuration where configuration.config_id=3)=\"peu importe\"  ) \r\n" + 
+			"\r\n" + 
+			"and (nom_epic=(select configuration.config_epic from configuration where configuration.config_id=3) \r\n" + 
+			"or(select configuration.config_epic from configuration where configuration.config_id=3)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and (nom_version=(select configuration.config_version from configuration where configuration.config_id=3) \r\n" + 
+			"or(select configuration.config_version from configuration where configuration.config_id=3)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
+			"and numero_sprint>(select configuration.config_sprint from configuration where configuration.config_id=3) \r\n" + 
+			"\r\n" + 
+			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=3) \r\n" + 
+			"\r\n" + 
+			"and date_creation<(select configuration.date_fin from configuration where configuration.config_id=3) "
 			, nativeQuery = true)
 	List<TicketResolutionTime> FindTicketWithTime();
 	
@@ -73,13 +104,11 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			, nativeQuery = true)
 	List<GroupByTicketRepartition> GroupByNumberOfTickets();
 	
-	@Query(value="SELECT last_name,id_statut,COUNT(*) "
-			+ "as nb_de_ticket FROM proportion_closed_returned_view "
-			+ "GROUP BY id_statut"
+	@Query(value="SELECT last_name,id_statut,COUNT(*) as nb_de_ticket FROM ticket_closed_returned_for_chart GROUP BY id_statut"
 			, nativeQuery = true)
 	List<GroupByProportionClosedReturned> GroupByTicketRepartition();
 	
-	@Query(value="SELECT nom_ticket as last_name, SUM(temps_de_resolution) AS nb_de_ticket FROM resolution_time_ticket_view GROUP BY nom_ticket"
+	@Query(value="SELECT nom_ticket as last_name, SUM(temps_de_resolution) AS nb_de_ticket FROM resolution_time_ticket_view_for_chart GROUP BY nom_ticket"
 			, nativeQuery = true)
 	List<GroupByTicketResolution> GroupByResolutionTime();
 	

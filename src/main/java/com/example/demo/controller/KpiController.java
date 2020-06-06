@@ -24,6 +24,7 @@ import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
 import com.example.demo.DAO.GroupByTicketResolution;
+import com.example.demo.DAO.TicketClosedReturned;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
@@ -54,7 +55,7 @@ public class KpiController {
 	}
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/kpi/productivite/proportion-returned-validated-tickets" }, method = RequestMethod.GET)
-	public List<TicketRepartition> Get_Tickets_Returned_And_Validated()
+	public List<TicketClosedReturned> Get_Tickets_Returned_And_Validated()
 	{
 		return ticketService.FindTicketProportionClosedReturned();
 		
@@ -172,12 +173,42 @@ public class KpiController {
 	}
 	
 
-	
+	// Get config for forms 
 
 	
 	
+/*
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/Config/kpi1" }, method = RequestMethod.GET)
+	public List<TicketRepartition> Get_Tickets_Closed()
+	{
+		return ticketService.ShowTicketsByRepartition();
+		
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/Config/kpi2" }, method = RequestMethod.GET)
+	public List<TicketClosedReturned> Get_Tickets_Returned_And_Validated()
+	{
+		return ticketService.FindTicketProportionClosedReturned();
+		
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/Config/kpi3" }, method = RequestMethod.GET)
+	public List<TicketResolutionTime> Get_Tickets_With_Time_Spent()
+	{
+		return ticketService.FindTicketByLogs();
+		
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/Config/kpi4" }, method = RequestMethod.GET)
+	public List<TicketPriorite> Get_Tickets_With_Priority_And_Version()
+	{
+		return ticketService.FindTicketByVersion();
+		
+	}
 	
+	*/
 
 	
 

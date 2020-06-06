@@ -11,4 +11,7 @@ public interface TicketResolutionTime {
 	Date getDate_creation();
 	String getNom_ticket();
 	String getNom_log() ;
+	String getNom_epic();
+	String getNom_version();
+	int getNumero_sprint();
 }
