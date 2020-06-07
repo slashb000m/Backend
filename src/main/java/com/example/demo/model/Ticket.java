@@ -28,6 +28,10 @@ public class Ticket {
 	@Column(name = "nom")
 	private String nom; 
 	
+	@Column(name = "titre")
+	private String titre; 
+	
+	
 	@Column(name = "type")
 	private String type; 
 	

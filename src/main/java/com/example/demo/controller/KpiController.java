@@ -177,38 +177,40 @@ public class KpiController {
 
 	
 	
-/*
+
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/Config/kpi1" }, method = RequestMethod.GET)
-	public List<TicketRepartition> Get_Tickets_Closed()
+	public com.example.demo.DAO.Configuration ConfigKPI1()
 	{
-		return ticketService.ShowTicketsByRepartition();
+		return ticketService.getKpi1();
 		
 	}
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/Config/kpi2" }, method = RequestMethod.GET)
-	public List<TicketClosedReturned> Get_Tickets_Returned_And_Validated()
+	public  com.example.demo.DAO.Configuration  ConfigKPI2()
 	{
-		return ticketService.FindTicketProportionClosedReturned();
+		return ticketService.getKpi2();
 		
 	}
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/Config/kpi3" }, method = RequestMethod.GET)
-	public List<TicketResolutionTime> Get_Tickets_With_Time_Spent()
+	public  com.example.demo.DAO.Configuration  ConfigKPI3()
 	{
-		return ticketService.FindTicketByLogs();
-		
-	}
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = { "/Config/kpi4" }, method = RequestMethod.GET)
-	public List<TicketPriorite> Get_Tickets_With_Priority_And_Version()
-	{
-		return ticketService.FindTicketByVersion();
-		
+		return ticketService.getKpi3();		
 	}
 	
-	*/
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/Config/kpi4" }, method = RequestMethod.GET)
+	public  com.example.demo.DAO.Configuration  ConfigKPI4()
+	{
+		return ticketService.getKpi4();
+		
+	}
+
+	
+
+
 
 	
 

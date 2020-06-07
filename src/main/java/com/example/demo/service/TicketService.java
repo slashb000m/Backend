@@ -1,6 +1,7 @@
 package com.example.demo.service;
 import java.util.List;
 
+import com.example.demo.DAO.Configuration;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -28,7 +29,14 @@ public interface TicketService  {
 	 public List<GroupByTicketResolution> ContNumberOfResolutionTime();
 	 public List<GroupByTicketPriorite> ContNumberOfPriorite();
   
-  // Post service
+  // Get configuration state
+	 
+	 
+	public Configuration getKpi1();
+	public Configuration getKpi2();
+	public Configuration getKpi3();
+	public Configuration getKpi4();
+	
   
 	
 }

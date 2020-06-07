@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.DAO.Configuration;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -73,7 +74,32 @@ public class TicketServiceImpl implements TicketService
 		}
 	 
 	 
-	 
+
+@Override
+public Configuration getKpi1() 
+{
+	 return ticketRepository.GetKpi1();
+}
+
+@Override
+public Configuration getKpi2() 
+{
+	 return ticketRepository.GetKpi2();
+}
+
+@Override
+public Configuration getKpi3() 
+{
+	 return ticketRepository.GetKpi3();
+	
+}
+
+@Override
+public Configuration getKpi4() 
+{
+	return ticketRepository.GetKpi4();
+
+}
 	 
 	 
 	

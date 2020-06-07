@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.DAO.Configuration;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -85,7 +86,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 	List<TicketResolutionTime> FindTicketWithTime();
 	
 	
-	@Query(value="SELECT * FROM `tickets_with_priority_view"
+	@Query(value="select * from tickets_with_priority_view where (nom_epic=(select configuration.config_epic from configuration where configuration.config_id=4) or(select configuration.config_epic from configuration where configuration.config_id=4)=\"peu importe\" ) and (nom_version=(select configuration.config_version from configuration where configuration.config_id=4) or(select configuration.config_version from configuration where configuration.config_id=4)=\"peu importe\" ) and numero_sprint>(select configuration.config_sprint from configuration where configuration.config_id=4) and date_creation>(select configuration.date_deb from configuration where configuration.config_id=4) and date_creation<(select configuration.date_fin from configuration where configuration.config_id=4)"
 			, nativeQuery = true)
 	List<TicketPriorite> FindTicketWithPriorite();
 	
@@ -113,12 +114,35 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 	List<GroupByTicketResolution> GroupByResolutionTime();
 	
 	@Query(value="SELECT priorite, COUNT(*) as nb_de_ticket"
-			+ " FROM tickets_with_priority_view "
+			+ " FROM tickets_with_priority_view_for_chart "
 			+ "GROUP BY priorite"
 			, nativeQuery = true)
 	List<GroupByTicketPriorite> GroupByTicketPriority();
 	
-	// 
+	// Get configuration 
+	
+	
+	@Query(value="SELECT configuration.config_collaborateur as nom_collab,configuration.config_epic as epic,configuration.config_sprint as sprint,configuration.config_statut statut,configuration.config_version as version,configuration.date_deb as date_deb,configuration.date_fin as date_fin from configuration "
+			+ "where configuration.config_id = 1"
+			, nativeQuery = true)
+	Configuration GetKpi1();
+	
+	@Query(value="SELECT configuration.config_collaborateur as nom_collab,configuration.config_epic as epic,configuration.config_sprint as sprint,configuration.config_statut statut,configuration.config_version as version,configuration.date_deb as date_deb,configuration.date_fin as date_fin from configuration "
+			+ "where configuration.config_id = 2"
+			, nativeQuery = true)
+	Configuration GetKpi2();
+	
+	@Query(value="SELECT configuration.config_collaborateur as nom_collab,configuration.config_epic as epic,configuration.config_sprint as sprint,configuration.config_statut statut,configuration.config_version as version,configuration.date_deb as date_deb,configuration.date_fin as date_fin from configuration "
+			+ "where configuration.config_id = 3"
+			, nativeQuery = true)
+	Configuration GetKpi3();
+	
+	@Query(value="SELECT configuration.config_collaborateur as nom_collab,configuration.config_epic as epic,configuration.config_sprint as sprint,configuration.config_statut statut,configuration.config_version as version,configuration.date_deb as date_deb,configuration.date_fin as date_fin from configuration "
+			+ "where configuration.config_id = 4"
+			, nativeQuery = true)
+	Configuration GetKpi4();
+	
+	
 	
 	
 	

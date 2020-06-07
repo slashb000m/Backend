@@ -17,8 +17,15 @@ public class TicketRepartitionImpl implements TicketRepartition{
     public String nom_client;
     public int numero_sprint;
     public String nom_epic;
+    public String titre;
     
     
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 	public int getNumero_sprint() {
 		return numero_sprint;
 	}

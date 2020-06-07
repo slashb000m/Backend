@@ -24,14 +24,9 @@ public interface ConfigurationService {
 	public void saveOrUpdateDateDeb(ConfigDateImpl datedeb);
 	public void saveOrUpdateDateFin(ConfigDateFinImpl datefin);
 	
-	// services for getting configurations 
 	
-/*	public Configuration getKpi1();
-	public Configuration getKpi2();
-	public Configuration getKpi3();
-	public Configuration getKpi4();
-	
-	*/
+
+
 	
 
 	
