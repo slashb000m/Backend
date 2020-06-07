@@ -16,6 +16,7 @@ import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
+import com.example.demo.DAO.Configuration;
 import com.example.demo.repository.ConfigRepository;
 
 @Service
@@ -116,13 +117,39 @@ public void saveOrUpdateDateFin(ConfigDateFinImpl datefin) {
 	
 	
 }
+/*
+@Override
+public Configuration getKpi1() 
+{
+	 return configRepository.getFirstKpi();
+}
+
+@Override
+public Configuration getKpi2() 
+{
+	 return configRepository.getSecondKpi();
+}
+
+@Override
+public Configuration getKpi3() 
+{
+	 return configRepository.getThirdKpi();
+	
+}
+
+@Override
+public Configuration getKpi4() 
+{
+	return configRepository.getFourthKpi();
+
+}
 
 
 
 
 
 
-
+*/
 
 
 

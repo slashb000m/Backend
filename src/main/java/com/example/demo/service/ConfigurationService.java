@@ -10,7 +10,8 @@ import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
-import com.example.demo.model.Configuration;
+import com.example.demo.DAO.Configuration;
+
 
 public interface ConfigurationService {
 	
@@ -23,6 +24,14 @@ public interface ConfigurationService {
 	public void saveOrUpdateDateDeb(ConfigDateImpl datedeb);
 	public void saveOrUpdateDateFin(ConfigDateFinImpl datefin);
 	
+	// services for getting configurations 
+	
+/*	public Configuration getKpi1();
+	public Configuration getKpi2();
+	public Configuration getKpi3();
+	public Configuration getKpi4();
+	
+	*/
 	
 
 	
