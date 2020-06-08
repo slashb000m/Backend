@@ -63,6 +63,10 @@ public class Ticket {
 	
 	@ManyToOne
 	private Client client; 
+	
+	@ManyToOne
+	private Module module; 
+
 
 	
 	@ManyToOne

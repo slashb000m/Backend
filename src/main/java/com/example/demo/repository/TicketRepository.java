@@ -37,6 +37,9 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			"and (nom_version=(select configuration.config_version from configuration where configuration.config_id=1) \r\n" + 
 			"or(select configuration.config_version from configuration where configuration.config_id=1)=\"peu importe\" )\r\n" + 
 			"\r\n" + 
+			"and (first_name=(select configuration.config_collaborateur from configuration where configuration.config_id=1) \r\n" + 
+			"or(select configuration.config_collaborateur from configuration where configuration.config_id=1)=\"peu importe\" )\r\n" + 
+			"\r\n" + 
 			"and numero_sprint>(select configuration.config_sprint from configuration where configuration.config_id=1) \r\n" + 
 			"\r\n" + 
 			"and date_creation>(select configuration.date_deb from configuration where configuration.config_id=1) \r\n" + 
