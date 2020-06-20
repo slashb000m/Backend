@@ -11,4 +11,5 @@ public interface TicketPriorite {
 	public int getNumero_sprint();
 	public String getNom_epic();
 	public String getNom_version();
+	public String getNom_module();
 }

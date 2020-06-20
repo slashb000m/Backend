@@ -10,5 +10,6 @@ public interface Configuration
 	int getSprint();
 	String getStatut();
 	Date getDate_deb(); 
-	Date getDate_fin();
+	Date getDate_fin(); 
+	String getNom_module();
 }

@@ -12,6 +12,7 @@ public interface TicketClosedReturned
 	public String getLast_name();
 	public String getNom_produit();
 	public String getNom_version();
+	public String getNom_module();
 	
 	
 }

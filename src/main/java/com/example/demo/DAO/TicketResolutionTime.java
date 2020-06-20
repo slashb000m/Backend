@@ -14,4 +14,6 @@ public interface TicketResolutionTime {
 	String getNom_epic();
 	String getNom_version();
 	int getNumero_sprint();
+	String getNom_module();
+	
 }

@@ -16,6 +16,7 @@ import com.example.demo.DAO.ConfigDateFinImpl;
 import com.example.demo.DAO.ConfigDateImpl;
 import com.example.demo.DAO.ConfigEpicImpl;
 import com.example.demo.DAO.ConfigIntImpl;
+import com.example.demo.DAO.ConfigModuleImpl;
 import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
@@ -28,6 +29,7 @@ import com.example.demo.DAO.TicketClosedReturned;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
+import com.example.demo.DAO.getConfigChamps;
 import com.example.demo.model.Configuration;
 import com.example.demo.service.ConfigurationService;
 import com.example.demo.service.TicketService;
@@ -128,6 +130,15 @@ public class KpiController {
 	
 
 	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/configModule/Kpi" },consumes ="application/json", method = RequestMethod.POST)
+	public void ConfigModule(@RequestBody ConfigModuleImpl config)
+	{
+		configurationService.saveOrUpdateModule(config);
+	}
+	
+	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = { "/configVersion/Kpi" },consumes ="application/json", method = RequestMethod.POST)
 	public void ConfigVersion(@RequestBody ConfigVersionImpl config)
 	{
@@ -207,7 +218,53 @@ public class KpiController {
 		return ticketService.getKpi4();
 		
 	}
+	
+	//Get config  
+	
+	
+	
+	
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/champsConfig/nom" }, method = RequestMethod.GET)
+	public List<getConfigChamps> getConfigNom()
+	{
+		return ticketService.getNom();
+		
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/champsConfig/statut" }, method = RequestMethod.GET)
+	public List<com.example.demo.DAO.getConfigStatut> getConfigStatut()
+	{
+		return ticketService.getStatut();
+		
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/champsConfig/module" }, method = RequestMethod.GET)
+	public List<com.example.demo.DAO.getConfigModule> getConfigModule()
+	{
+		return ticketService.getModule();
+		
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/champsConfig/epic" }, method = RequestMethod.GET)
+	public List<com.example.demo.DAO.getConfigEpic> getConfigEpic()
+	{
+		return ticketService.getEpic();
+		
+	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/champsConfig/version" }, method = RequestMethod.GET)
+	public List<com.example.demo.DAO.getConfigVersion> getConfigVersion()
+	{
+		return ticketService.getVersion();
+		
+	}
 	
 
 

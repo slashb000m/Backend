@@ -14,7 +14,7 @@ package com.example.demo.DAO;
 	    public String getNom_epic();
 	    public int getNumero_sprint();
 	    public String getTitre();
-	    
+		public String getNom_module();
 
 	}
 

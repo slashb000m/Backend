@@ -10,6 +10,11 @@ import com.example.demo.DAO.TicketClosedReturned;
 import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
+import com.example.demo.DAO.getConfigChamps;
+import com.example.demo.DAO.getConfigEpic;
+import com.example.demo.DAO.getConfigModule;
+import com.example.demo.DAO.getConfigStatut;
+import com.example.demo.DAO.getConfigVersion;
 
 
 
@@ -36,6 +41,17 @@ public interface TicketService  {
 	public Configuration getKpi2();
 	public Configuration getKpi3();
 	public Configuration getKpi4();
+	
+	// Get Config champs 
+	
+	
+	public List<getConfigChamps> getNom();
+	public List<getConfigStatut>  getStatut();
+	public List<getConfigModule>  getModule();
+	public List<getConfigVersion>  getVersion();
+	public List<getConfigEpic>  getEpic();
+	
+	
 	
   
 	

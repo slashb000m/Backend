@@ -15,8 +15,17 @@ public class TicketResolutionTimeImpl implements TicketResolutionTime {
 	private String nom_epic;
 	private String nom_version;
 	private int numero_sprint;
+	private String nom_module;
 	
 	
+	
+	
+	public String getNom_module() {
+		return nom_module;
+	}
+	public void setNom_module(String nom_module) {
+		this.nom_module = nom_module;
+	}
 	public String getNom_epic() {
 		return nom_epic;
 	}

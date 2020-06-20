@@ -37,6 +37,9 @@ public class Configuration {
 	@Column(name="config_statut")
 	private String config_statut; 
 	
+	@Column(name="config_module")
+	private String config_module; 
+	
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date date_deb;

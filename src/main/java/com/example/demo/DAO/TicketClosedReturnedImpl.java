@@ -12,8 +12,16 @@ public class TicketClosedReturnedImpl implements TicketClosedReturned
     private String last_name;
     private String nom_produit;
     private String nom_version;
+    private String nom_module;
     
     
+    
+	public String getNom_module() {
+		return nom_module;
+	}
+	public void setNom_module(String nom_module) {
+		this.nom_module = nom_module;
+	}
 	public String getNom_epic() {
 		return nom_epic;
 	}

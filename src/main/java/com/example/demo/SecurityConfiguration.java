@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.csrf().disable().formLogin()
 				.loginPage("/login")
 				.failureUrl("/login?error=true")
-				.defaultSuccessUrl("http://localhost:4200/")
+				.defaultSuccessUrl("http://localhost:4200/Kpis")
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.and()

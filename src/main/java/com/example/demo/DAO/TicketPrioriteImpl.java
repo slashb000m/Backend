@@ -11,6 +11,7 @@ public class TicketPrioriteImpl {
 	private int numero_sprint; 
 	private String nom_epic; 
 	private String nom_version; 
+	private String nom_module;
 	
 	
 	
@@ -19,6 +20,12 @@ public class TicketPrioriteImpl {
 	
 	public String getNom_version() {
 		return nom_version;
+	}
+	public String getNom_module() {
+		return nom_module;
+	}
+	public void setNom_module(String nom_module) {
+		this.nom_module = nom_module;
 	}
 	public void setNom_version(String nom_version) {
 		this.nom_version = nom_version;

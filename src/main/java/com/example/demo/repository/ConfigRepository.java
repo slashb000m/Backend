@@ -62,6 +62,13 @@ public interface ConfigRepository extends JpaRepository<Configuration, Integer>
 	@Query(value="UPDATE configuration SET date_fin= :config WHERE config_id= :id"
 			, nativeQuery = true)
 	public void saveDateFin(@Param("id") Integer id_config,@Param("config") Date date_fin);
+	
+	@Modifying
+	@Transactional
+	@Query(value="UPDATE configuration SET config_module= :config WHERE config_id= :id"
+			, nativeQuery = true)
+	public void saveModule(@Param("id") Integer id_config,@Param("config") String nom_module);
+	
 
 	
 

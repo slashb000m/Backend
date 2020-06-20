@@ -18,8 +18,16 @@ public class TicketRepartitionImpl implements TicketRepartition{
     public int numero_sprint;
     public String nom_epic;
     public String titre;
+    public String nom_module;
     
-    
+
+	
+	public String getNom_module() {
+		return nom_module;
+	}
+	public void setNom_module(String nom_module) {
+		this.nom_module = nom_module;
+	}
 	public String getTitre() {
 		return titre;
 	}

@@ -8,12 +8,20 @@ public class ConfigurationImpl implements Configuration {
 
 private String nom_collab;
 private String version; 
-private String epic; 
+private String epic;
+private String nom_module;
 private int sprint; 
 private String statut; 
 private Date date_deb;
 private Date date_fin;
 
+
+public String getNom_module() {
+	return nom_module;
+}
+public void setNom_module(String nom_module) {
+	this.nom_module = nom_module;
+}
 public String getNom_collab() {
 	return nom_collab;
 }

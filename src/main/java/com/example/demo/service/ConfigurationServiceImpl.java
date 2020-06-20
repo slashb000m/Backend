@@ -11,6 +11,7 @@ import com.example.demo.DAO.ConfigDateImpl;
 import com.example.demo.DAO.ConfigEpicImpl;
 import com.example.demo.DAO.ConfigInt;
 import com.example.demo.DAO.ConfigIntImpl;
+import com.example.demo.DAO.ConfigModuleImpl;
 import com.example.demo.DAO.ConfigStatut;
 import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
@@ -115,6 +116,16 @@ public void saveOrUpdateDateFin(ConfigDateFinImpl datefin) {
 	configRepository.saveDateFin(id,nom);
 	
 	
+	
+}
+
+@Override
+public void saveOrUpdateModule(ConfigModuleImpl module) {
+
+	int id= module.getId_config();
+	String nom= module.getConfig_module();
+	
+	configRepository.saveModule(id, nom);
 	
 }
 
