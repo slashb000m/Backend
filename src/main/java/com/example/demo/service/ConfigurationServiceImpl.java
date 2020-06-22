@@ -18,6 +18,8 @@ import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.Configuration;
+import com.example.demo.DAO.DashboardIdImpl;
+import com.example.demo.DAO.getDashboardImpl;
 import com.example.demo.repository.ConfigRepository;
 
 @Service
@@ -126,6 +128,13 @@ public void saveOrUpdateModule(ConfigModuleImpl module) {
 	String nom= module.getConfig_module();
 	
 	configRepository.saveModule(id, nom);
+	
+}
+
+@Override
+public void DeleteDashboard(DashboardIdImpl dashboard_id) {
+	int id= dashboard_id.getId();
+	configRepository.deleteDashboard(id);
 	
 }
 

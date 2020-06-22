@@ -20,6 +20,7 @@ import com.example.demo.DAO.getConfigEpic;
 import com.example.demo.DAO.getConfigModule;
 import com.example.demo.DAO.getConfigStatut;
 import com.example.demo.DAO.getConfigVersion;
+import com.example.demo.DAO.getDashboard;
 import com.example.demo.repository.TicketRepository;
 
 @Service
@@ -135,8 +136,13 @@ public List<getConfigVersion>  getVersion() {
 public List<getConfigEpic>  getEpic() {
 	return ticketRepository.GetEpic();
 }
-	 
-	 
+
+@Override
+public List<getDashboard> getDashboards()
+{
+	return ticketRepository.GetDashboards();
+}
+
 	
 	
 

@@ -12,6 +12,8 @@ import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.Configuration;
+import com.example.demo.DAO.DashboardIdImpl;
+import com.example.demo.DAO.getDashboardImpl;
 
 
 public interface ConfigurationService {
@@ -25,6 +27,10 @@ public interface ConfigurationService {
 	public void saveOrUpdateSprint(ConfigIntImpl sprint);
 	public void saveOrUpdateDateDeb(ConfigDateImpl datedeb);
 	public void saveOrUpdateDateFin(ConfigDateFinImpl datefin);
+	
+	// delete dashboard 
+	
+	public void DeleteDashboard(DashboardIdImpl dashboard_id);
 	
 	
 

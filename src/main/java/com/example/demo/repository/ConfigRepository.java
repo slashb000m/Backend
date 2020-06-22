@@ -69,6 +69,19 @@ public interface ConfigRepository extends JpaRepository<Configuration, Integer>
 			, nativeQuery = true)
 	public void saveModule(@Param("id") Integer id_config,@Param("config") String nom_module);
 	
+	
+	//delete dashboard
+	
+	@Modifying
+	@Transactional
+	@Query(value="DELETE FROM dashboard WHERE id= :id"
+			, nativeQuery = true)
+	public void deleteDashboard(@Param("id") Integer dashboard_id);
+	
+
+
+	
+
 
 	
 

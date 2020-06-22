@@ -15,6 +15,7 @@ import com.example.demo.DAO.getConfigEpic;
 import com.example.demo.DAO.getConfigModule;
 import com.example.demo.DAO.getConfigStatut;
 import com.example.demo.DAO.getConfigVersion;
+import com.example.demo.DAO.getDashboard;
 
 
 
@@ -50,6 +51,12 @@ public interface TicketService  {
 	public List<getConfigModule>  getModule();
 	public List<getConfigVersion>  getVersion();
 	public List<getConfigEpic>  getEpic();
+	
+	// Get Dashboards
+	
+	public List<getDashboard> getDashboards();
+	
+	
 	
 	
 	

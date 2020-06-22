@@ -21,6 +21,8 @@ import com.example.demo.DAO.ConfigStatutImpl;
 import com.example.demo.DAO.ConfigString;
 import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
+import com.example.demo.DAO.DashboardId;
+import com.example.demo.DAO.DashboardIdImpl;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -30,6 +32,7 @@ import com.example.demo.DAO.TicketPriorite;
 import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
 import com.example.demo.DAO.getConfigChamps;
+import com.example.demo.DAO.getDashboard;
 import com.example.demo.model.Configuration;
 import com.example.demo.service.ConfigurationService;
 import com.example.demo.service.TicketService;
@@ -266,8 +269,25 @@ public class KpiController {
 		
 	}
 	
+	//get dashboards
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/get/Dashboards" }, method = RequestMethod.GET)
+	public List<getDashboard> GetDashboards()
+	{
+		
+		return ticketService.getDashboards();
+	}
+	
+	//delete Dashboard
 
-
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = { "/delete/dashboard" },consumes ="application/json", method = RequestMethod.POST)
+	public void DeleteDashboard(@RequestBody DashboardIdImpl dashboard_id)
+	{
+		configurationService.DeleteDashboard(dashboard_id);		
+	}
+	
 
 	
 

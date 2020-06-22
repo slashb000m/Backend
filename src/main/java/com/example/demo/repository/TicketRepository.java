@@ -23,6 +23,7 @@ import com.example.demo.DAO.getConfigEpic;
 import com.example.demo.DAO.getConfigModule;
 import com.example.demo.DAO.getConfigStatut;
 import com.example.demo.DAO.getConfigVersion;
+import com.example.demo.DAO.getDashboard;
 import com.example.demo.model.Ticket;
 
 
@@ -181,7 +182,13 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 			, nativeQuery = true)
 	List<getConfigModule>  GetModule();
 	
+	@Query(value="SELECT * from `dashboard` "
+			, nativeQuery = true)
+	List <getDashboard> GetDashboards();
 	
+
+	
+
 	
 	
 	
