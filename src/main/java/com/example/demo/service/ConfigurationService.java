@@ -13,6 +13,7 @@ import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.Configuration;
 import com.example.demo.DAO.DashboardIdImpl;
+import com.example.demo.DAO.DashboardNomImpl;
 import com.example.demo.DAO.getDashboardImpl;
 
 
@@ -31,6 +32,12 @@ public interface ConfigurationService {
 	// delete dashboard 
 	
 	public void DeleteDashboard(DashboardIdImpl dashboard_id);
+	
+
+	// create dashboard 
+	
+	public void createDashboard(DashboardNomImpl nom_dashboard);
+	
 	
 	
 

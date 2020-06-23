@@ -79,6 +79,17 @@ public interface ConfigRepository extends JpaRepository<Configuration, Integer>
 	public void deleteDashboard(@Param("id") Integer dashboard_id);
 	
 
+	//Create dashboard
+	
+	@Modifying
+	@Transactional
+	@Query(value="INSERT INTO `dashboard` (`id`, `nom_dashboard`) VALUES (NULL,:nom);"
+			, nativeQuery = true)
+	public void createDashboard(@Param("nom") String nom_dashboard);
+	
+
+	
+
 
 	
 

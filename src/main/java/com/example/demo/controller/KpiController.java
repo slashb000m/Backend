@@ -23,6 +23,7 @@ import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.DashboardId;
 import com.example.demo.DAO.DashboardIdImpl;
+import com.example.demo.DAO.DashboardNomImpl;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -33,6 +34,7 @@ import com.example.demo.DAO.TicketRepartition;
 import com.example.demo.DAO.TicketResolutionTime;
 import com.example.demo.DAO.getConfigChamps;
 import com.example.demo.DAO.getDashboard;
+import com.example.demo.DAO.getDashboardImpl;
 import com.example.demo.model.Configuration;
 import com.example.demo.service.ConfigurationService;
 import com.example.demo.service.TicketService;
@@ -288,7 +290,15 @@ public class KpiController {
 		configurationService.DeleteDashboard(dashboard_id);		
 	}
 	
+	//create Dashboard
 
+		@CrossOrigin(origins = "http://localhost:4200")
+		@RequestMapping(value = { "/create/dashboard" },consumes ="application/json", method = RequestMethod.POST)
+		public void CreateDashboard(@RequestBody DashboardNomImpl nom_dashboard)
+		{
+			configurationService.createDashboard(nom_dashboard);		
+		}
+		
 	
 
 
