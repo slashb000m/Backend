@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.hibernate.result.NoMoreReturnsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import com.example.demo.DAO.ConfigStringImpl;
 import com.example.demo.DAO.ConfigVersionImpl;
 import com.example.demo.DAO.DashboardId;
 import com.example.demo.DAO.DashboardIdImpl;
+import com.example.demo.DAO.DashboardNom;
 import com.example.demo.DAO.DashboardNomImpl;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
@@ -287,7 +289,8 @@ public class KpiController {
 	@RequestMapping(value = { "/delete/dashboard" },consumes ="application/json", method = RequestMethod.POST)
 	public void DeleteDashboard(@RequestBody DashboardIdImpl dashboard_id)
 	{
-		configurationService.DeleteDashboard(dashboard_id);		
+		configurationService.DeleteDashboard(dashboard_id);	
+		configurationService.DeleteRapports(dashboard_id);
 	}
 	
 	//create Dashboard
@@ -297,13 +300,32 @@ public class KpiController {
 		public void CreateDashboard(@RequestBody DashboardNomImpl nom_dashboard)
 		{
 			configurationService.createDashboard(nom_dashboard);		
+			configurationService.createRapport1(nom_dashboard);	
+			configurationService.createRapport2(nom_dashboard);	
+			configurationService.createRapport3(nom_dashboard);	
+			configurationService.createRapport4(nom_dashboard);	
+		}
+		
+		//consult dashboard
+
+		@CrossOrigin(origins = "http://localhost:4200")
+		@RequestMapping(value = { "/consult/dashboard" },consumes ="application/json", method = RequestMethod.POST)
+		public void ConsultDashboard(@RequestBody DashboardIdImpl dashboard_id)
+		{
+			configurationService.ConsultDashboard(dashboard_id);		
 		}
 		
 	
 
 
 
-	
+		@CrossOrigin(origins = "http://localhost:4200")
+		@RequestMapping(value = { "/get/nomDashboard" }, method = RequestMethod.GET)
+		public DashboardNom GetNomDashboard()
+		{
+			return ticketService.getNomDashboard();
+			
+		}
 
 
 	

@@ -32,11 +32,22 @@ public interface ConfigurationService {
 	// delete dashboard 
 	
 	public void DeleteDashboard(DashboardIdImpl dashboard_id);
+	public void DeleteRapports(DashboardIdImpl dashboard_id);
 	
 
 	// create dashboard 
 	
 	public void createDashboard(DashboardNomImpl nom_dashboard);
+	public void createRapport1(DashboardNomImpl nom_dashboard);
+	public void createRapport2(DashboardNomImpl nom_dashboard);
+	public void createRapport3(DashboardNomImpl nom_dashboard);
+	public void createRapport4(DashboardNomImpl nom_dashboard);
+	
+	
+	// delete dashboard 
+	
+	public void ConsultDashboard(DashboardIdImpl dashboard_id);
+	
 	
 	
 	

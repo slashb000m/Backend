@@ -147,6 +147,62 @@ public void createDashboard(DashboardNomImpl nom_dashboard)
 	
 }
 
+@Override
+public void ConsultDashboard(DashboardIdImpl dashboard_id) {
+
+	int id= dashboard_id.getId();
+	configRepository.consultDashboard(id);
+}
+
+
+
+
+
+// ddddd
+
+
+
+
+
+
+
+
+
+@Override
+public void DeleteRapports(DashboardIdImpl dashboard_id) {
+	int id= dashboard_id.getId();
+	configRepository.deleteRapportConfig(id);
+	
+}
+
+@Override
+public void createRapport1(DashboardNomImpl nom_dashboard) {
+	String nom= nom_dashboard.getNom_dashboard();
+	configRepository.createDashboardRapport1(nom);
+	
+}
+
+@Override
+public void createRapport2(DashboardNomImpl nom_dashboard) {
+	String nom= nom_dashboard.getNom_dashboard();
+	configRepository.createDashboardRapport2(nom);
+	
+}
+
+@Override
+public void createRapport3(DashboardNomImpl nom_dashboard) {
+	String nom= nom_dashboard.getNom_dashboard();
+	configRepository.createDashboardRapport3(nom);
+	
+}
+
+@Override
+public void createRapport4(DashboardNomImpl nom_dashboard) {
+	String nom= nom_dashboard.getNom_dashboard();
+	configRepository.createDashboardRapport4(nom);
+	
+}
+
 
 
 

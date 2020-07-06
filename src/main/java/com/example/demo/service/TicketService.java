@@ -2,6 +2,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.DAO.Configuration;
+import com.example.demo.DAO.DashboardNom;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -55,6 +56,11 @@ public interface TicketService  {
 	// Get Dashboards
 	
 	public List<getDashboard> getDashboards();
+	
+	
+	// Get Dashboards
+	
+	public DashboardNom getNomDashboard();
 	
 	
 	

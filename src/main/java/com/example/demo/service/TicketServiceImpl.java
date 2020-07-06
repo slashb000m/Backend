@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DAO.Configuration;
+import com.example.demo.DAO.DashboardNom;
 import com.example.demo.DAO.GroupByProportionClosedReturned;
 import com.example.demo.DAO.GroupByTicketPriorite;
 import com.example.demo.DAO.GroupByTicketRepartition;
@@ -141,6 +142,12 @@ public List<getConfigEpic>  getEpic() {
 public List<getDashboard> getDashboards()
 {
 	return ticketRepository.GetDashboards();
+}
+
+@Override
+public DashboardNom getNomDashboard() {
+
+	return ticketRepository.GetDashboardNom();
 }
 
 	
